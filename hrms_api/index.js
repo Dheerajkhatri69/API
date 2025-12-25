@@ -10,8 +10,8 @@ app.use(express.json());
 //default function
 app.get('/',async(req,res)=>{
     try{
-            const result = await pool.query(`  select e.employee_id,concat(e.first_name,' ',e.last_name) as "Full Name",
-            concat(m.first_name,' ',m.last_name) as "Manager Name",
+            const result = await pool.query(`  select e.employee_id,concat(e.first_name,' ',e.last_name) as "Full_Name",
+            concat(m.first_name,' ',m.last_name) as "Manager_Name",
             e.salary,e.email,e.phone_number,d.department_name,j.job_title,
             l.street_address,l.postal_code,l.city,l.state_province,c.country_name,
             r.region_name
@@ -135,17 +135,7 @@ app.get('/jh',async(req,res)=>{
 });
 
 
-
-
-
-
-
-
-
-
-
-
-const PORT = process.env.PORT | 5000;
+const PORT =  5000;
 app.listen(PORT,()=>{
     console.log(`Server is running on PORT : ${PORT}`);
 });
